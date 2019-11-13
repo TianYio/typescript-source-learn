@@ -1,0 +1,8 @@
+{
+  "name": "typescript-primary",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/TianYio/typescript-source-learn.git",
+  "author": "tianyu1 <18222170921@163.com>",
+  "license": "MIT"
+}
