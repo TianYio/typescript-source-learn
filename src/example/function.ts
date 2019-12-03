@@ -14,4 +14,34 @@ addFunc = (value1: number, value2: number) => value1 + value2;
 
 type AddFunction = (v1: number, v2: number, v3?: number) => number;
 let addFunction: AddFunction;
-addFunction = (v1: number, v2: number) => v1 + v2 ;
+addFunction = (v1: number, v2: number) => v1 + v2;
+
+interface Card {
+    suit: string;
+    card: number;
+}
+
+interface Deck {
+    suits: string[];
+    cards: number[];
+
+    createCardPicker(this: Deck): () => {}
+}
+
+let deck: Deck = {
+    suits: ['hearts', 'spades', 'clubs', 'diamonds'],
+    cards: Array(52),
+    createCardPicker: function () {
+        return () => {
+            let pickedCard = Math.floor(Math.random() * 52);
+            let pickedSuit = Math.floor(pickedCard / 13);
+            return {
+                suit: this.suits[pickedSuit],
+                card: pickedCard % 13
+            }
+        }
+    }
+};
+let cardPicker = deck.createCardPicker();
+let pickedCard = cardPicker();
+console.log(`card ${pickedCard.card} of ${pickedCard.suit}`)
