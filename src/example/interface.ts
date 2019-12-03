@@ -18,7 +18,7 @@ interface ClockConstructor {
 }
 
 interface ClockInterface {
-    tick();
+    tick():any;
 }
 
 function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
@@ -83,7 +83,8 @@ c.interval = 5;
 
 class Control {
     private state: any;
-    public content: string;
+    // public content: string;
+    constructor(){}
 }
 
 interface SelectableControl extends Control {
@@ -99,8 +100,9 @@ class TextBox extends Control {
 
 }
 
+/*
 class Image implements SelectableControl {
     //Property state、content from class Control is not implemented
     select(): void {
     }
-}
+}*/
