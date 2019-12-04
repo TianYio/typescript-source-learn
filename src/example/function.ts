@@ -25,7 +25,13 @@ interface Deck {
     suits: string[];
     cards: number[];
 
-    createCardPicker(this: Deck): () => {}
+    /*
+    *this是个假参数，出现在参数列表的最前边
+    **/
+    createCardPicker(this: Deck): () => {
+        suit: any;
+        card: any;
+    }
 }
 
 let deck: Deck = {
