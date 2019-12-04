@@ -3,5 +3,6 @@
 // import './example/interface'
 // import './example/function'
 // import './example/class'
-import './example/generic'
-import './example/enum'
+// import './example/generic'
+// import './example/enum'
+import './example/Intersection'
