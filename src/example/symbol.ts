@@ -47,3 +47,15 @@ const obj1 = {
 };
 console.log({a: 'a'} instanceof <any>obj1);
 
+/*
+* for…of 迭代的是对象 键对应的值
+* for…in 迭代的是对象 键的列表
+* */
+
+let list = ['4', '5', '6'];
+for (let i in list) {
+    console.log(i);//0,1,2
+}
+for (let i of list) {
+    console.log(i);//'4','5','6'
+}
