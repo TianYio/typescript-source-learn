@@ -65,10 +65,10 @@ const dog = new Dog(`MiNi`);
 dog.sayHi();
 dog.move();
 
-/*class Greeter {
+class Greeter {
     static standardGreeting = 'Hello, there';
 
-    protected greeting: string;
+    protected greeting!: string;
     // constructor(public greeting:string){}
 
     greet() {
@@ -88,5 +88,5 @@ let greeterMarker: typeof Greeter = Greeter;
 greeterMarker.standardGreeting = 'Hey there';
 
 let greeter2: Greeter = new Greeter();
-console.log(greeter2.greet());*/
+console.log(greeter2.greet());
 
