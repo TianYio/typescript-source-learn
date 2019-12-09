@@ -5,4 +5,4 @@
 // import './example/class'
 // import './example/generic'
 // import './example/enum'
-import './example/Intersection'
+import './example/advancedType'

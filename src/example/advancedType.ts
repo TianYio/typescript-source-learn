@@ -54,12 +54,52 @@ padLeft('Hello World', 4);
 /*
 * 类型保护与区分类型
 * */
+
 /*
 * pet is Fish就是类型谓词.
 * 谓词为 parameterName is Type这种形式,
 * parameterName必须是来自于当前函数签名里的一个参数名
 * */
 function isStr(pet: number | string): pet is string {
-    return (<string>pet).length !== Infinity;
+    return typeof pet === 'string';
+}
+
+interface Padder {
+    getPaddingString(): string;
+}
+
+class SpaceRepeatingPadder implements Padder {
+    constructor(private numSpaces: number) {
+    }
+
+    getPaddingString(): string {
+        return Array(this.numSpaces + 1).join('');
+    }
+}
+
+class StringPadder implements Padder {
+    constructor(private value: string) {
+    }
+
+    getPaddingString(): string {
+        return this.value;
+    }
+}
+
+function getRandomPadder() {
+    return Math.random() < 0.5 ? new SpaceRepeatingPadder(4) : new StringPadder('');
+}
+/*
+* instanceof 的右侧要求是一个构造函数，Typescript将细化为：
+* 1、此构造函数的prototype属性的类型，如果它的类型不为any的话
+* 2、构造签名所返回的类型的联合
+* 依次顺序
+* */
+let padder: Padder = getRandomPadder();
+if (padder instanceof SpaceRepeatingPadder) {
+    padder;
+}
+if (padder instanceof StringPadder) {
+    padder;
 }
 
